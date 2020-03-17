@@ -1,0 +1,15 @@
+<mat-list>
+  <ng-container *ngFor="let timeZoneContainer of timeZoneId">
+    <div class='todo-list-form' [style.background-color]="timeZoneContainer.color">
+      <div [style.font-size]="22" mat-subheader>{{timeZoneContainer.text}}</div>
+      <div *ngFor="let list of todolist">
+        <mat-list-item *ngIf="list.timezone == timeZoneContainer.id">
+          <div mat-line> {{list.updated | date}} </div>
+          <div mat-line>{{list.name}}</div>
+          <hr>
+        </mat-list-item>
+        <!-- <mat-divider></mat-divider> -->
+      </div>
+    </div>
+  </ng-container>
+  </mat-list>
