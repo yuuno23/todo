@@ -48,10 +48,7 @@ todo フォルダ (TODO 関連)
 　 　┃　┗todo-list.component.ts
 　 　┃
 　 　┣todo-list-item（リスト）
-　 　┃　┣todo-list-item.component.html
-　 　┃　┗todo-list-item.component.ts
-　 　┃
-　 　┗todo-dialogいる？(リスト詳細？編集、削除など)
-　　　　┣todo-list-item.component.html
-　　　　┗todo-list-item.component.ts
+　 　　 ┣todo-list-item.component.html
+　 　　 ┗todo-list-item.component.ts
+
 ```
