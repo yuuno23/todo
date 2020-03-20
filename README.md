@@ -1,3 +1,4 @@
+print '
 ■ファイル構成(※spec.tsとscssは省いている)
 app.component.html (approot)
 app.component.ts (approot)
@@ -53,3 +54,4 @@ todo フォルダ (TODO 関連)
 　 　┗todo-dialogいる？(リスト詳細？編集、削除など)
 　　　　┣todo-list-item.component.html
 　　　　┗todo-list-item.component.ts
+		
