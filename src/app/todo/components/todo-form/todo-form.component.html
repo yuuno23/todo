@@ -1,0 +1,46 @@
+<form class="todo--form" [formGroup]="form" fxLayout="row wrap"  (ngSubmit)="form.valid && onSubmit()">
+  <label id="todo-form-label" class="font-size30">ToDoリスト</label>
+  <div fxFlex="100">
+    <!-- ngModel使用時はname属性必要 -->
+    <div fxLayout="row">
+      <!-- priority -->
+      <!-- formArrayName="priority" -->
+      <div class="radio-button-width">
+        <label id="priority-radio-group-label">優先度</label>
+        <mat-radio-group
+        aria-labelledby="priority-radio-group-label"
+        class="priority-radio-group"
+        formControlName="priority"
+        >
+          <mat-radio-button class="priority-radio-button" *ngFor="let category of todoCategory; index as i" value={{i+1}}>
+            {{category.priority}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <!-- timezoned -->
+      <!-- formArrayName="timezone" -->
+      <div class="radio-button-width">
+        <label id="timezone-radio-group-label">時間帯</label>
+        <mat-radio-group
+        aria-labelledby="timezone-radio-group-label"
+        class="timezone-radio-group"
+        formControlName="timezone"
+        >
+          <mat-radio-button class="timezone-radio-button" *ngFor="let category of todoCategory; index as i" value={{i+1}}>
+            {{category.timezone}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <!-- form -->
+      <mat-form-field class="todo-form-full-width" appearance="outline">
+        <mat-label>予定を記入してください(60文字以内)</mat-label>
+        <textarea matInput #input maxlength="60" rows="5" placeholder="例：猫にごはんをあげる" formControlName="text"></textarea>
+      </mat-form-field>
+      <button class="todo-form-button-margin" mat-fab color="primary" aria-label="Todo input button" [disabled]="form.invalid || loading">
+        <mat-icon>create</mat-icon>
+      </button>
+    </div>
+
+  </div>
+
+</form>

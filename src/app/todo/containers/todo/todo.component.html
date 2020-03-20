@@ -1,0 +1,20 @@
+<div class="content" role="main">
+ <!-- TodoForm -->
+<app-todo-form [loading]="loading$ | async" (create)="create($event)"></app-todo-form>
+  <!-- TodoList -->
+  <app-todo-list>
+    <ng-container *ngFor="let priorityList of priorityData">
+      <div class='todo-list-form' [style.background-color]="priorityList.color" fxFlex="33" fxFlex.sm="100" fxFlex.xs="100">
+        <div class="font-size30" mat-subheader>{{priorityList.text}}</div>
+        <app-todo-list-item
+          *ngFor="let todo of todos$ | async"
+          [priorityCategory] = "priorityList.id"
+          [todo]="todo"
+          [loading]="loading$ | async"
+          (update)="update($event)"
+          (remove)="remove($event)"
+        ></app-todo-list-item>
+      </div>
+    </ng-container>
+  </app-todo-list>
+</div>
