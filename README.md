@@ -1,27 +1,55 @@
-# TodoApp
+■ファイル構成(※spec.tsとscssは省いている)
+app.component.html (approot)
+app.component.ts (approot)
+app.module.ts (approot 設定/管理)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
+material フォルダ
+　┗material.module.ts (angular materialのmodule管理)
 
-## Development server
+app.routing.module.ts (画面遷移用：汎用性を上げるため：todo用は子ルート(todo-routing.module.ts)を使用)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+in-memory-data.service.ts (REST API による CRUD 操作をエミュレートするインメモリの Web API )
 
-## Code scaffolding
+app-store フォルダ (ngrx関連)
+　┣app-store.module.ts
+　┗index.ts
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+todo フォルダ (TODO 関連)
+　┣todo-module.ts (設定/管理)
+　┣todo-routing.module.ts (画面遷移: rootはpath無、遷移コンポーネントはpath有)
+　┣models
+　┃　　┗todo.model.ts (interface作成:クラスに必要なものを指定 ※すべてクラスで実装必須)
+　┃
+　┣services フォルダ
+　┃　┗todo.service.ts (Web API設定)
+　┃
+　┣store フォルダ (ngrx関連)
+　┃　┣index.ts
+　┃　┣todo-store.module.ts
+　┃　┣todo.effects.ts
+　┃　┣todo.facede.ts
+　┃　┣todo.actions.ts
+　┃　┣todo.reducer.ts
+　┃　┗todo.selector.ts
+　┃
+　┣containers\todo フォルダ (todoメイン)
+　┃　┣todo.component.html
+　┃　┗todo.component.ts
+　┃
+　┣components フォルダ (todoコンポーネント)
+　 　┣todo-form (入力)
+　 　┃　┣todo-form.component.html
+　 　┃　┗todo-form.component.ts
+　 　┃
+　 　┣todo-list（リストベース）
+　 　┃　┣todo-list.component.html
+　 　┃　┗todo-list.component.ts
+　 　┃
+　 　┣todo-list-item（リスト）
+　 　┃　┣todo-list-item.component.html
+　 　┃　┗todo-list-item.component.ts
+　 　┃
+　 　┗todo-dialogいる？(リスト詳細？編集、削除など)
+　　　　┣todo-list-item.component.html
+　　　　┗todo-list-item.component.ts
